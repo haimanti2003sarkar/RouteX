@@ -93,7 +93,7 @@ The database is used to support the booking workflow and maintain information re
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR-GITHUB-REPOSITORY-URL>
+git https://github.com/haimanti2003sarkar/RouteX
 ```
 
 ### 2. Open the project
@@ -164,7 +164,3 @@ GitHub: [haimanti2003sarkar](https://github.com/haimanti2003sarkar)
 LinkedIn: [Haimanti Sarkar](https://www.linkedin.com/in/haimanti-sarkar-b18b04288/)
 
 ---
-
-## 📌 Note
-
-RouteX is an academic/student project developed to demonstrate practical implementation of a web-based bus booking and reservation system.
