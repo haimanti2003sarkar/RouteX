@@ -1,12 +1,18 @@
-# 🚌 RouteX — West Bengal Bus Booking System
+🚌 RouteX — West Bengal Bus Booking System
+
+> A web-based bus ticket booking and reservation system.
+
+🌐 Live Demo
+
+View RouteX Live →](https://routex-west-bengal.netlify.app/)\*\*
 
 RouteX is a web-based bus ticket booking and reservation system designed to provide a simple and user-friendly way to search for buses, select seats, enter passenger details, and complete a booking.
 
-The project was developed as a full-stack web application using **HTML, CSS, JavaScript, and Supabase/PostgreSQL**.
+The project was developed as a full-stack web application using \*\*HTML, CSS, JavaScript, and Supabase/PostgreSQL.
 
 ---
 
-## ✨ Features
+✨ Features
 
 - 🔎 Search for available buses
 - 🚌 View bus routes and journey information
@@ -19,20 +25,20 @@ The project was developed as a full-stack web application using **HTML, CSS, Jav
 
 ---
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack:
 
-### Frontend
+Frontend
 
 - HTML5
 - CSS3
 - JavaScript
 
-### Backend / Database
+Backend / Database
 
 - Supabase
 - PostgreSQL
 
-### Development Tools
+Development Tools
 
 - Visual Studio Code
 - Git
@@ -40,7 +46,7 @@ The project was developed as a full-stack web application using **HTML, CSS, Jav
 
 ---
 
-## 📂 Project Structure
+📂 Project Structure
 
 ```text
 RouteX/
@@ -60,7 +66,7 @@ RouteX/
 
 ---
 
-## 🔄 Booking Flow
+🔄 Booking Flow
 
 ```text
 Search Bus
@@ -78,7 +84,7 @@ Booking Confirmation
 
 ---
 
-## 🗄️ Database
+🗄️ Database
 
 RouteX uses **Supabase with PostgreSQL** to store application data.
 
@@ -88,25 +94,25 @@ The database is used to support the booking workflow and maintain information re
 
 ---
 
-## 🚀 Getting Started
+🚀 Getting Started
 
-### 1. Clone the repository
+1.  Clone the repository
 
 ```bash
 git https://github.com/haimanti2003sarkar/RouteX
 ```
 
-### 2. Open the project
+2.  Open the project
 
 Open the cloned RouteX folder in **Visual Studio Code**.
 
-### 3. Configure Supabase
+3.  Configure Supabase
 
 If the project requires Supabase configuration, add your own Supabase project URL and public client key in the appropriate JavaScript configuration.
 
 Do not expose private keys or service-role credentials.
 
-### 4. Run the project
+4.  Run the project
 
 The project can be run using a local development server such as the **VS Code Live Server extension**.
 
@@ -120,7 +126,7 @@ and launch it using Live Server.
 
 ---
 
-## 🎯 Project Objective
+🎯 Project Objective
 
 The primary objective of RouteX is to demonstrate the development of a practical bus reservation system with a simple frontend interface and database-backed booking workflow.
 
@@ -137,7 +143,7 @@ The project focuses on applying concepts such as:
 
 ---
 
-## 🔮 Future Improvements
+🔮 Future Improvements
 
 Possible future enhancements include:
 
@@ -153,9 +159,9 @@ Possible future enhancements include:
 
 ---
 
-## 👩‍💻 Author
+👩‍💻 Author
 
-**Haimanti Sarkar**
+Haimanti Sarkar
 
 Computer Science & Engineering Student
 
