@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>RouteX — Bus Booking & Reservation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="routex.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i data-lucide="sparkles"></i></span>
+          Route<span>X</span>
+        </a>
+
+        <nav>
+          <a href="#search">Book Tickets</a>
+          <a href="#routes">Popular Routes</a>
+          <a href="#why-us">Why RouteX?</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+          >
+            <i id="themeIcon" data-lucide="moon"></i>
+          </button>
+
+          <button
+            class="nav-button"
+            onclick="
+              document
+                .getElementById('search')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Find a Bus
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i data-lucide="circle"></i>
+            WEST BENGAL TRAVEL
+          </div>
+          <h1>
+            Your journey starts
+            <span>here.</span>
+          </h1>
+
+          <p>
+            Discover comfortable bus journeys across West Bengal. Search routes,
+            choose your seat and book your trip in minutes.
+          </p>
+
+          <div class="hero-stats">
+            <div>
+              <strong>14+</strong>
+              <span>Routes</span>
+            </div>
+
+            <div>
+              <strong>10+</strong>
+              <span>Destinations</span>
+            </div>
+
+            <div>
+              <strong>24/7</strong>
+              <span>Booking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="floating-card card-one">
+            <i data-lucide="map-pin"></i>
+            <div>
+              <small>Popular route</small>
+              <strong>Kolkata → Digha</strong>
+            </div>
+          </div>
+
+          <div class="bus-illustration">
+            <div class="bus-glow"></div>
+            <div class="bus-emoji">
+              <i data-lucide="bus-front"></i>
+            </div>
+          </div>
+
+          <div class="floating-card card-two">
+            <i data-lucide="check-circle"></i>
+            <div>
+              <small>Booking status</small>
+              <strong>Easy & Secure</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search Section -->
+      <section class="search-section" id="search">
+        <div class="search-heading">
+          <div>
+            <span class="section-label">PLAN YOUR JOURNEY</span>
+            <h2>Where are you going?</h2>
+          </div>
+
+          <span class="route-count" id="routeCount">14 routes available</span>
+        </div>
+
+        <div class="search-box">
+          <div class="field">
+            <label for="source">FROM</label>
+
+            <div class="input-wrapper">
+              <span>
+                <i data-lucide="map-pin"></i>
+              </span>
+              <select id="source">
+                <option value="">Select origin</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="swap-button" id="swapButton" title="Swap locations">
+            <i data-lucide="arrow-left-right"></i>
+          </button>
+
+          <div class="field">
+            <label for="destination">TO</label>
+
+            <div class="input-wrapper">
+              <span>
+                <i data-lucide="map-pin"></i>
+              </span>
+              <select id="destination">
+                <option value="">Select destination</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field date-field">
+            <label for="travelDate">DATE</label>
+
+            <div class="input-wrapper">
+              <span>
+                <i data-lucide="calendar-days"></i>
+              </span>
+              <input type="date" id="travelDate" />
+            </div>
+          </div>
+
+          <button class="search-button" id="searchButton">
+            Search buses
+            <span>→</span>
+          </button>
+        </div>
+
+        <p class="search-hint">
+          ✦ Currently serving popular destinations across West Bengal
+        </p>
+      </section>
+
+      <!-- RESULTS -->
+      <section class="results-section">
+        <div class="results-header">
+          <div>
+            <span class="section-label">AVAILABLE BUSES</span>
+            <h2 id="resultsTitle">Explore your options</h2>
+          </div>
+
+          <button class="clear-button" id="clearButton">Clear search</button>
+        </div>
+
+        <div id="loading" class="status-box hidden">
+          <div class="spinner"></div>
+          <p>Finding the best buses for you...</p>
+        </div>
+
+        <div id="errorMessage" class="error-box hidden"></div>
+
+        <div id="busResults" class="bus-grid"></div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">
+            <i data-lucide="bus-front"></i>
+          </div>
+
+          <h3>Ready for your next journey?</h3>
+
+          <p>
+            Select your origin, destination and travel date to discover
+            available buses.
+          </p>
+
+          <button
+            onclick="
+              document
+                .getElementById('search')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Search buses →
+          </button>
+        </div>
+      </section>
+
+      <!-- POPULAR ROUTES -->
+      <section class="routes-section" id="routes">
+        <div class="section-top">
+          <div>
+            <span class="section-label">EXPLORE WEST BENGAL</span>
+            <h2>Popular destinations</h2>
+          </div>
+
+          <p>
+            From coastal escapes to northern journeys, RouteX connects you to
+            Bengal's favourite destinations.
+          </p>
+        </div>
+
+        <div class="destination-grid">
+          <button
+            class="destination-card digha"
+            onclick="quickSearch('Kolkata', 'Digha')"
+          >
+            <div class="destination-overlay">
+              <span>01</span>
+              <h3>Digha</h3>
+              <p>Beach escapes</p>
+            </div>
+          </button>
+
+          <button
+            class="destination-card siliguri"
+            onclick="quickSearch('Kolkata', 'Siliguri')"
+          >
+            <div class="destination-overlay">
+              <span>02</span>
+              <h3>Siliguri</h3>
+              <p>Gateway to North Bengal</p>
+            </div>
+          </button>
+
+          <button
+            class="destination-card durgapur"
+            onclick="quickSearch('Kolkata', 'Durgapur')"
+          >
+            <div class="destination-overlay">
+              <span>03</span>
+              <h3>Durgapur</h3>
+              <p>Industrial city</p>
+            </div>
+          </button>
+
+          <button
+            class="destination-card malda"
+            onclick="quickSearch('Kolkata', 'Malda')"
+          >
+            <div class="destination-overlay">
+              <span>04</span>
+              <h3>Malda</h3>
+              <p>Historic Bengal</p>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Why Us? -->
+      <section class="why-section" id="why-us">
+        <div class="why-heading">
+          <span class="section-label">THE ROUTEX EXPERIENCE</span>
+          <h2>Travel without the hassle.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⌕</div>
+            <h3>Easy discovery</h3>
+            <p>
+              Search routes and compare available buses without jumping through
+              complicated menus.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>Simple booking</h3>
+            <p>
+              Choose your journey and reserve a seat through a clean,
+              straightforward booking flow.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3>Reliable data</h3>
+            <p>
+              Route and booking information is stored securely in a PostgreSQL
+              database through Supabase.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div>
+          <a href="#" class="logo">
+            <span class="logo-icon">✦</span>
+            Route<span>X</span>
+          </a>
+
+          <p>Making bus travel across West Bengal simpler.</p>
+        </div>
+
+        <div class="footer-right">
+          <span>Built with HTML · CSS · JavaScript · Supabase</span>
+          <span>© 2026 RouteX</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="routex.js"></script>
+  </body>
+</html>
